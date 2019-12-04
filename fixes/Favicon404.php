@@ -1,4 +1,7 @@
 <?php namespace ProcessWire;
+/**
+ * Other possible fixes: http://www.faviconcodegenerator.com/prevent-favicon-404-error.php
+ */
 class Favicon404 extends PWFix {
   public $label = "Prevent Favicon 404 error";
   public $description = "If no favicon.ico file exists, devtools will report a 404. This fix will add a dummy favicon so that the 404 error is not displayed in the devtools.";
