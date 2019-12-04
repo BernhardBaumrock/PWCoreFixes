@@ -1,6 +1,6 @@
 # PwCoreFixes
 
-This module is intended to serve as a collection of PW core fixes that can easily
+This module is intended to serve as a collection of ProcessWire core fixes that can easily
 be enabled via checkboxes in the module's config.
 
 ## Usage
