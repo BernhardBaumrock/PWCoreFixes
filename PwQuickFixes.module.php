@@ -13,7 +13,7 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
   public static function getModuleInfo() {
     return [
       'title' => 'PwQuickFixes',
-      'version' => '0.0.3',
+      'version' => '0.0.4',
       'summary' => 'Collection of PW Quick Fixes',
       'autoload' => true,
       'singular' => true,
@@ -38,7 +38,10 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
       $f->attr('name', $fix->name);
       $f->label = $fix->label;
       $f->description = $fix->description;
-      if($fix->issue) $f->notes = "Related issue: [{$fix->issue}]({$fix->issue})";
+      $notes = [];
+      if($fix->issue) $notes[] = "Related issue: [{$fix->issue}]({$fix->issue})";
+      if($fix->author) $notes[] = "Fix by [{$fix->author}](https://github.com/{$fix->author}) - THX!";
+      $f->notes = implode("\n", $notes);
       $f->attr('checked', @$data[$fix->name] ? 'checked' : '');
       $inputfields->add($f);
     }
