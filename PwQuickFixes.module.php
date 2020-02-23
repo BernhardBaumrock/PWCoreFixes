@@ -1,20 +1,20 @@
 <?php namespace ProcessWire;
 /**
- * PW Core Fixes
+ * PW Quick Fixes
  *
  * @author Bernhard Baumrock, 04.12.2019
  * @license Licensed under MIT
  * @link https://www.baumrock.com
  */
 require('PWFix.php');
-class PwCoreFixes extends WireData implements Module, ConfigurableModule {
+class PwQuickFixes extends WireData implements Module, ConfigurableModule {
   public $fixes;
 
   public static function getModuleInfo() {
     return [
-      'title' => 'PwCoreFixes',
-      'version' => '0.0.1',
-      'summary' => 'Collection of PW Core Fixes',
+      'title' => 'PwQuickFixes',
+      'version' => '0.0.2',
+      'summary' => 'Collection of PW Quick Fixes',
       'autoload' => true,
       'singular' => true,
       'icon' => 'bug',
@@ -51,7 +51,7 @@ class PwCoreFixes extends WireData implements Module, ConfigurableModule {
 
   public function ready() {
     $name = $this->input->get('name', 'string');
-    if($this->page->id == 21 AND $name == 'PwCoreFixes') {
+    if($this->page->id == 21 AND $name == 'PwQuickFixes') {
       if(function_exists('bd')) bd($this->fixes);
     }
   }
