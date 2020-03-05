@@ -13,7 +13,7 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
   public static function getModuleInfo() {
     return [
       'title' => 'PwQuickFixes',
-      'version' => '0.0.4',
+      'version' => '0.0.5',
       'summary' => 'Collection of PW Quick Fixes',
       'autoload' => true,
       'singular' => true,
@@ -85,7 +85,10 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
 
       // call init method if fix is enabled
       $name = $class->name;
-      if(!!$this->{$name}) $class->init();
+      if(!!$this->{$name}) {
+        $class->init();
+        $class->loadAssets();
+      }
 
       // add it to array
       $fixes[] = $class;

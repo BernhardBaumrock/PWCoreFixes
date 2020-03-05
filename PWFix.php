@@ -13,6 +13,16 @@ abstract class PWFix extends Wire {
   }
 
   /**
+   * Load assets having the same name as the fix
+   */
+  public function loadAssets() {
+    $file = __DIR__ . "/fixes/$this.css";
+    if(is_file($file)) $this->config->styles->add($this->url($file));
+    $file = __DIR__ . "/fixes/$this.js";
+    if(is_file($file)) $this->config->scripts->add($this->url($file));
+  }
+
+  /**
    * Init method
    */
   public function init() {
