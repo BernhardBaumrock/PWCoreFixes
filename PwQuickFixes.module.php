@@ -13,7 +13,7 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
   public static function getModuleInfo() {
     return [
       'title' => 'PwQuickFixes',
-      'version' => '0.0.5',
+      'version' => '0.0.6',
       'summary' => 'Collection of PW Quick Fixes',
       'autoload' => true,
       'singular' => true,
