@@ -42,7 +42,7 @@ class PwQuickFixes extends WireData implements Module, ConfigurableModule {
       if($fix->issue) $notes[] = "Related issue: [{$fix->issue}]({$fix->issue})";
       if($fix->author) $notes[] = "Fix by [{$fix->author}](https://github.com/{$fix->author}) - THX!";
       $f->notes = implode("\n", $notes);
-      $f->attr('checked', @$data[$fix->name] ? 'checked' : '');
+      $f->attr('checked', array_key_exists($fix->name, $data) ? 'checked' : '');
       $inputfields->add($f);
     }
 
