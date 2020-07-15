@@ -17,11 +17,15 @@ abstract class PWFix extends Wire {
    */
   public function loadAssets() {
     $file = __DIR__ . "/fixes/$this.css";
-    $m = "?m=".filemtime($file);
-    if(is_file($file)) $this->config->styles->add($this->url($file).$m);
+    if(is_file($file)) {
+      $m = "?m=".filemtime($file);
+      $this->config->styles->add($this->url($file).$m);
+    }
     $file = __DIR__ . "/fixes/$this.js";
-    $m = "?m=".filemtime($file);
-    if(is_file($file)) $this->config->scripts->add($this->url($file).$m);
+    if(is_file($file)) {
+      $m = "?m=".filemtime($file);
+      $this->config->scripts->add($this->url($file).$m);
+    }
   }
 
   /**
