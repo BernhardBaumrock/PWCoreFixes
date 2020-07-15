@@ -17,9 +17,11 @@ abstract class PWFix extends Wire {
    */
   public function loadAssets() {
     $file = __DIR__ . "/fixes/$this.css";
-    if(is_file($file)) $this->config->styles->add($this->url($file));
+    $m = "?m=".filemtime($file);
+    if(is_file($file)) $this->config->styles->add($this->url($file).$m);
     $file = __DIR__ . "/fixes/$this.js";
-    if(is_file($file)) $this->config->scripts->add($this->url($file));
+    $m = "?m=".filemtime($file);
+    if(is_file($file)) $this->config->scripts->add($this->url($file).$m);
   }
 
   /**
@@ -44,6 +46,6 @@ abstract class PWFix extends Wire {
     $info['name'] = $this->name;
     $info['label'] = $this->label;
     $info['description'] = $this->description;
-    return $info; 
+    return $info;
   }
 }
